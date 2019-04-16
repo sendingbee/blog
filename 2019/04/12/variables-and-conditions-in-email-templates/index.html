@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <title>Variables and conditions in email templates - SendingBee Blog</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+</html>
+<body>
+    <div class="header">
+        <div class="menu">
+  <div class="menu-logo">
+    <a href="/">
+      <i class="sendingbee-icon-bee"></i> SendingBee</a>
+    
+  </div>
+
+  <div class="menu-links">
+    <a href="https://sendingbee.com#features">Features</a>
+    <a href="https://sendingbee.com#pricing">Pricing</a>
+    <a href="https://app.sendingbee.com/login" class="button">Sign In</a>
+    <a href="https://app.sendingbee.com/sign-up" class="button outline">Sign Up</a>
+  </div>
+</div>
+    </div>
+    <div class="content">
+        <h1 class="post-title">Variables and conditions in email templates</h1>
+<div class="post markdown-style">
+  <p>One of the ways how to make newsletters and marketing emails feel more personal
+is to include details about the person receiving the email. You can greet them
+by their name and mention other details specific to your audience.</p>
+<p></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hello &#123;&#123; first_name &#125;&#125;,</span><br></pre></td></tr></table></figure>
+<p>Here, we’re sending an email with a greeting that will be specific to each
+recipient. The square brackets mean that we want to output a <strong>variable</strong>
+called <code>first_name</code>. When sending the email, the whole expression including the
+square brackets will be replaced with an value of each subscriber’s first name.</p>
+<p>The way you do this might differ in your email marketing app but the principle
+is the same - you use values stored for each subscriber and output it in the
+email. Consult your marketing app’s documentation how to do this. The examples
+here will all use <a href="https://sendingbee.com">SendingBee</a>‘s syntax and features.</p>
+<p>A common scenario when dealing with variables is that you don’t have a value
+for every subscriber. For example, you don’t know every subscriber’s first
+name. To handle this, you can use default values as follows.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hello &#123;&#123; first_name | default: &quot;there&quot; &#125;&#125;,</span><br></pre></td></tr></table></figure>
+<p>When the email is being sent and a recipient is missing its first name, the
+system will replace it with the value specified in the default block. In this
+case the email will read “Hello there,” when the value is missing.</p>
+<p>Sometimes you want to go further and show or hide entire paragraphs of text
+based on a subscriber’s variable values. For example, you might want to show an
+additional paragraph in case the subscriber has purchased at your shop more
+than 10 times.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% if purchased_num_times &gt; 10 %&#125;</span><br><span class="line">  Thank you for being a loyal customer! Use our coupon...</span><br><span class="line">&#123;% else %&#125;</span><br><span class="line">  Thank you for shopping with us.</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>A speciality of SendingBee is the ability to conditionally show entire
+components. Clicking on a component reveals its settings and you can write
+conditions in the “Show If” input field.</p>
+<img src="/2019/04/12/variables-and-conditions-in-email-templates/show-if.png" class="image">
+<p>Seeing whether an email with variables and conditions is correct can be
+difficult because you don’t see the email rendered. You can however do just
+that in SendingBee. At the top, you can search for a contact (subscriber) and
+once selected, the email will be rendered in the context of that particular
+user.</p>
+<video controls preload class="video" width="500px">
+    <source src="/2019/04/12/variables-and-conditions-in-email-templates/preview-as.mp4" type="video/mp4">
+    Sorry, your browser doesn’t support embedded videos.
+</video>
+
+<p>Going a step further, you can send yourself a preview of the email using the
+envelope icon right next to the “Preview as” input to see the email in a real
+email client.</p>
+<img src="/2019/04/12/variables-and-conditions-in-email-templates/email-preview.png" class="image image-70">
+<p>Variables and conditions are essential tools in today’s marketing emails and
+you should invest some time into learning how to use them effectively. If
+you’re interested in using <a href="https://sendingbee.com">SendingBee</a> while doing so, please sign up and do not
+hesitate to contact us in case you have any questions.</p>
+
+</div>
+
+    </div>
+    <div class="footer">
+        <div>
+  <h3>
+    &copy; 2019 SendingBee, a
+    <a href="https://sensible.io" target="_blank">sensible.io</a> product
+  </h3>
+</div>
+
+<ul>
+  <li>
+    <a href="https://twitter.com/sendingbee" target="_blank">Twitter</a>
+  </li>
+  <li>
+    <a href="https://docs.sendingbee.com" target="_blank">Documentation</a>
+  </li>
+  <li>
+    <a href="mailto:support@sendingbee.com" target="_blank">Contact</a>
+  </li>
+</ul>
+
+    </div>
+</body>
+</html>
